@@ -1,26 +1,25 @@
 {
-	"name": "HungryAdventure",
-	"version": "1.0.0",
-	"description": "Simple travel planning",
-	"author": "Michael J. Chan",
-	"license": "UNLICENSED",
-	"private": false,
-	"engine": {
-		"node": ">=4.0.0"
-	},
-
-	"scripts": {
-		"start": "grunt build && grunt upload",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-
-	"dependencies": {
-		"bcryptjs": "^2.0.2",
-    	"body-parser": "^1.9.0",
-    	"client-sessions": "^0.7.0",
-    	"csurf": "^1.6.1",
-    	"express": "^4.9.7",
-    	"jade": "^1.7.0",
-    	"mongoose": "^4.0.0"
-	}
+  "name": "HungryAdventure",
+  "version": "1.0.0",
+  "description": "Simple travel planning",
+  "author": "Michael J. Chan",
+  "license": "UNLICENSED",
+  "private": false,
+  "engine": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "start": "grunt build && grunt upload",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.0.2",
+    "body-parser": "^1.9.0",
+    "client-sessions": "^0.7.0",
+    "csurf": "^1.6.1",
+    "express": "^4.9.7",
+    "jade": "^1.7.0",
+    "mongoose": "^4.0.0",
+    "morgan": "^1.8.1"
+  }
 }
