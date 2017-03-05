@@ -1,20 +1,6 @@
 .DS_Store
-.AppleDouble
-.LSOverride
-iisnode.yml
 npm-debug.log
 
 node_modules
 
 
-# Icon must ends with two \r.
-Icon
-
-
-
-
-# Floobits
-.floo
-.floobit
-.floo
-.flooignore

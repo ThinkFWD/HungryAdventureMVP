@@ -1,19 +1,7 @@
-var express = require ('express');
-var app = express();
+var app = require('./utils.js');
+var port = process.env.PORT || 8888;
 
-app.set('view engine', 'jade');
+app.createApp().listen(port);
 
-app.get('/', function(req,res){
-	res.render(__dirname + '/views/index.jade');
+console.log('Server is now listening to port ' + port);
 
-app.get('/register', function(req,res){
-	res.render(__dirname + '/views/register.jade');
-});
-
-app.get('/login', function(req,res){
-	res.render(__dirname + '/views/login.jade');
-});
-
-});
-
-app.listen(3000);
