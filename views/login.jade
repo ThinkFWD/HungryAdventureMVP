@@ -3,21 +3,22 @@ extends base
 block vars
   - var title = 'Login'
 
-block body
-  h1 Log Into Your Account
+block content
+  h1
+  div.container
+     div.card.card-container
+      h2.login_title.text-center Login
+      hr
+      if error
+        p ERROR: #{error}
 
-  if error
-    p ERROR: #{error}
+      form.form-signin(method="post")
+        input(type="hidden", name="_csrf", value=csrfToken)
 
-  form(method="post")
-    input(type="hidden", name="_csrf", value=csrfToken)
+        span#reauth-email.reauth-email
+        p.input_title Email:
+        input(type="email", name="email", required autofocus, placeholder="email", class="login_box", id="inputEmail")
+        p.input_title Password:
+        input(type="password", name="password", required=true, id="inputPassword", class="login_box", placeholder="*******")
 
-    span Email:
-    input(type="email", name="email", required=true)
-    br
-
-    span Password:
-    input(type="password", name="password", required=true)
-    br
-
-    input(type="submit")
+        button(class="btn btn-lg btn-primary" type="submit") Login

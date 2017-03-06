@@ -3,13 +3,53 @@ extends base
 block vars
 	- var title = 'Dashboard'
 
-block body
+block content
+	script(src="/js/todo.js")
 	h1 Dashboard
 	p.
 		Welcome to the Dashboard! You are now logged in.
+		 <a href="/logout"> logout </a> 
 
 	h2 User Information
 	p First Name: 	#{user.firstName}
-	p Last Name: 	#{user.lastName}
 	p Email: 		#{user.email}
-	p Data:	    #{user.data}
+	p Data:	   		#{user.data}
+
+	h2 My Todo List
+
+	form(ng-submit="todoAdd()")
+		input(type="text" ng-model="todoInput" size="50" placeholder='Add New')
+		input(type="submit" value="Add New")
+
+	div(ng-repeat="x in todoList")
+		input(type="checkbox" ng-model="x.done")
+		span(ng-bind="x.todoText")
+
+	button(ng-click="remove()") Remove
+
+	script.
+		var app = angular.module('myApp', []);
+		app.controller('todoCtrl', function($scope) {$scope.todoList = [{todoText:'Clean House', done:false}];
+
+		$scope.todoAdd = function() {
+			$scope.todoList.push({todoText:$scope.todoInput, done:false});
+			$scope.todoInput = "";
+		};
+		
+		$scope.remove = function() {
+		var oldList = $scope.todoList;
+			$scope.todoList = [];
+			angular.forEach(oldList, function(x) {
+			if (!x.done) 
+				$scope.todoList.push(x);
+				console.log('hi');
+			});
+		};
+
+		});
+ 
+
+
+
+	
+

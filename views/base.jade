@@ -3,6 +3,10 @@ doctype html
 html
   head
     title Auth | #{title}
-  body
-   block body
+    link(type="text/css" href="css/style.css", rel="stylesheet")
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
+
+
+  body(ng-app="myApp" ng-controller="todoCtrl")
+   block content
    
