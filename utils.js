@@ -16,6 +16,7 @@ module.exports.createApp = function (){
 
 	// connect to mongo
 	// mongoose.connect('mongodb://localhost/HungryAdventure');
+	//mongoose.Promise = global.Promise;
 	mongoose.connect('mongodb://mike:mike@ds119810.mlab.com:19810/travel-data');
 	var app = express();
 

@@ -1,10 +1,16 @@
 var app = angular.module('myApp', []); 
 app.controller('todoCtrl', function($scope, $http) {
-    $scope.todoList = [{todoText:'Clean House', done:false}];
+    
 
     $scope.todoAdd = function() {
-        $http.get('/test').then(function (rr) {
-            $scope.todoList.push({todoText:rr.data.price, done:false});
+        $scope.todoList = [];
+        $http.get('/test').then(function (obj) {
+            console.log(obj.data);
+        angular.forEach(obj.data, function(x){
+            $scope.todoList.push({todoText:x.arrival_location, done:false});
+        });
+           // $scope.todoList.push(obj.data);
+            console.log('--||',$scope.todoList);
         });
         $scope.todoInput = "";
         

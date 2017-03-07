@@ -10,12 +10,12 @@ var bcrypt = require ('bcryptjs');
 // ++++++ Routes ++++++
 
 router.get('/test', function(req,res) {
-	trips.TripOptions.findOne({ price: 66 }).exec(function (err, trip) {
+	trips.TripOptions.find({ price: 66 }).exec(function (err, trip) {
 		if (!trip){
-			console.log('SORRY NO ENTRY', trip);
+			//console.log('SORRY NO ENTRY', trip);
 			//res.render('../views/login.jade', {error: "Nice try, wrong email / password", csrfToken: req.csrfToken() });
 		} else {
-			console.log('YAY YOU HAVE ENTRY', trip);
+			//console.log('YAY YOU HAVE ENTRY', trip);
 			// if (bcrypt.compareSync(req.body.password, user.password)){
 			// utils.createUserSession(req, res, user);
 			// 	res.redirect('/dashboard');

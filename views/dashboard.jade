@@ -14,13 +14,13 @@ block content
 	p Email: 		#{user.email}
 	p Data:	   		#{user.data}
 
-	h2 My Todo List
+	h2 My Trip Budget
 
 	form(ng-submit="todoAdd()")
 		input(type="text" ng-model="todoInput" size="50" placeholder='Add New')
 		input(type="submit" value="Add New")
 
-	div(ng-repeat="x in todoList")
+	div(ng-repeat="x in todoList track by $index")
 		input(type="checkbox" ng-model="x.done")
 		span(ng-bind="x.todoText")
 
