@@ -3,9 +3,21 @@ extends base
 block vars
   - var title = 'Home'
 
-block content 
-  h1 Hungry Adventure
-  p.
-   Welcome to the home page! Please <a href="/login"> Login </a> or 
-   <a href="/register"> Register </a> to continue.
+block content
+  script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
+  div(class='container')
+   h1 Hungry Adventure
+   p.
+    Welcome to the home page! Please <a href="/login"> Login </a> or 
+    <a href="/register"> Register </a> to continue.
 
+   h2 Budget
+    form(ng-submit="todoAdd()")
+     input(type="text" ng-model="todoInput" size="50" placeholder='Budget')
+     input(type="submit" value="Search")
+
+    div(ng-repeat="x in todoList track by $index")
+     input(type="checkbox" ng-model="x.done")
+     span(ng-bind="x.todoText")
+
+   script(src="/js/todo.js")

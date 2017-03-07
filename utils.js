@@ -5,6 +5,7 @@ var mongoose = require ('mongoose');
 var csrf = require('csurf');
 var session = require('client-sessions');
 var middleware = require('./app/middleware/middleware.js');
+var key = require ('./lib/config.js');
 
 
 
