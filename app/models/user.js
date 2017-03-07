@@ -5,7 +5,7 @@ var ObjectId = Schema.ObjectId;
 // USER MODELS
 // How we create, edit, delete and retrieve user account via MongoDB
 
-module.exports.User = mongoose.model('User', new Schema ({
+module.exports.User = mongoose.model('user', new Schema ({
 
 	id: ObjectId,
 	firstName: 	{type: String, required: '{PATH} is required.'}, 

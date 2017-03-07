@@ -3,10 +3,31 @@ var utils = require('../../utils');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var models = require('../models/user.js');
+var trips = require('../models/travel.js');
 var bcrypt = require ('bcryptjs');
 
 
 // ++++++ Routes ++++++
+
+router.get('/test', function(req,res) {
+	trips.TripOptions.findOne({ price: 66 }).exec(function (err, trip) {
+		if (!trip){
+			console.log('SORRY NO ENTRY', trip);
+			//res.render('../views/login.jade', {error: "Nice try, wrong email / password", csrfToken: req.csrfToken() });
+		} else {
+			console.log('YAY YOU HAVE ENTRY', trip);
+			// if (bcrypt.compareSync(req.body.password, user.password)){
+			// utils.createUserSession(req, res, user);
+			// 	res.redirect('/dashboard');
+			// } else {
+			// 	res.render('../views/login.jade', { error: "Nice try, wrong email / password", csrfToken: req.csrfToken() });
+			// }
+			res.send(trip);
+		}
+	});
+
+});
+
 
 router.get('/', function(req,res) {
 	res.render('../views/index.jade');
@@ -70,11 +91,20 @@ router.get('/dashboard', utils.requireLogin, function(req,res) {
 	res.render('../views/dashboard.jade');
 });
 
+// router.get('/test', function(req,res){
+// 	console.log('HELLO');
+// 	res.render('test.html');
+// });
+
+
 router.get('/logout', function (req,res) {
 	if(req.session){
 		req.session.reset();
 	}
 	res.redirect('/');
 });
+
+
+
 
 module.exports = router;

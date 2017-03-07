@@ -4,7 +4,6 @@ block vars
 	- var title = 'Dashboard'
 
 block content
-	script(src="/js/todo.js")
 	h1 Dashboard
 	p.
 		Welcome to the Dashboard! You are now logged in.
@@ -27,26 +26,9 @@ block content
 
 	button(ng-click="remove()") Remove
 
-	script.
-		var app = angular.module('myApp', []);
-		app.controller('todoCtrl', function($scope) {$scope.todoList = [{todoText:'Clean House', done:false}];
+	script(src="/js/todo.js")
 
-		$scope.todoAdd = function() {
-			$scope.todoList.push({todoText:$scope.todoInput, done:false});
-			$scope.todoInput = "";
-		};
-		
-		$scope.remove = function() {
-		var oldList = $scope.todoList;
-			$scope.todoList = [];
-			angular.forEach(oldList, function(x) {
-			if (!x.done) 
-				$scope.todoList.push(x);
-				console.log('hi');
-			});
-		};
 
-		});
  
 
 

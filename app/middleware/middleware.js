@@ -1,6 +1,7 @@
 var morgan = require('morgan');
 var model = require('../models/user.js');
 var utils = require('../../utils.js');
+var bodyParse = require('body-parser');
 
 
 

@@ -8,20 +8,26 @@ var middleware = require('./app/middleware/middleware.js');
 
 
 
+
 // Create and Initilize 
 module.exports.createApp = function (){
 // @returns {Object} app - An Express object
+    
 
 	// connect to mongo
-	mongoose.connect('mongodb://localhost/HungryAdventure');
+	// mongoose.connect('mongodb://localhost/HungryAdventure');
+	mongoose.connect('mongodb://mike:mike@ds119810.mlab.com:19810/travel-data');
 	var app = express();
 
+    app.use(express.static(__dirname + '/views'));
 
+	
 	//Settings
 	app.set('view engine', 'jade');
 	app.locals.pretty = true; // un-minifies
 	app.use(morgan('dev')); // view get/post requests
-	
+
+
 	//Middleware
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(session({
@@ -33,7 +39,6 @@ module.exports.createApp = function (){
 
 	app.use(csrf());
 	app.use(middleware.Auth);
-
 
 	//Routers
 	app.use(require('./app/routes/main.js'));
@@ -48,7 +53,7 @@ module.exports.createUserSession = function (req, res, user){
 // @params {Object} user - A user Object
 	var cleanUser = {
 		firstName: user.firstName,
-		lastname: user.lastName, 
+		lastName: user.lastName, 
 		email: user.email,
 		data: user.data || {}, 
 	};
@@ -73,3 +78,46 @@ module.exports.requireLogin = function (req, res, next){
 
 //Sometimes need to run this to get Mongo working
 //sudo chown -R `id -u` /data/db 
+
+/*
+
+
+	div(ng-controller="next-update-stats-controller")
+
+	p See global upgrade statistics for a package
+	input(type="text", placeholder="package name", ng-model="packageName" title="Enter package module to see update statistics")
+
+	button.btn(ng-click="loadStats()" title="click to search") Load
+
+	ul
+		li(ng-repeat="update in updates").{{update.name}} {{update.from}} -> {{update.to}}{{update.probability | number:0}}%{{update.success}} successful{{update.failure}} failed
+	
+	h2 GET routes
+*/
+
+
+/*
+
+	script.
+		var app = angular.module('myApp', []);
+		app.controller('todoCtrl', function($scope) {$scope.todoList = [{todoText:'Clean House', done:false}];
+
+		$scope.todoAdd = function() {
+			$scope.todoList.push({todoText:$scope.todoInput, done:false});
+			$scope.todoInput = "";
+		};
+		
+		$scope.remove = function() {
+		var oldList = $scope.todoList;
+			$scope.todoList = [];
+			angular.forEach(oldList, function(x) {
+			if (!x.done) 
+				$scope.todoList.push(x);
+				console.log('hi');
+			});
+		};
+
+		});
+
+
+*/
