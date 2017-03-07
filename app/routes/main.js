@@ -11,7 +11,7 @@ var bcrypt = require ('bcryptjs');
 
 router.get('/test', function(req,res) {
 	console.log('REQ', req.query);
-	trips.TripOptions.find({ price: req.query.budget }).exec(function (err, trip) {
+	trips.TripOptions.find({ price: {$lte:req.query.budget} }).exec(function (err, trip) {
 		if (!trip){
 			console.log('SORRY NO ENTRY', trip);
 		} else {

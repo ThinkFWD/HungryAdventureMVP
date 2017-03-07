@@ -5,10 +5,8 @@ block vars
 
 block content
 	script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
+	<font color="white">
 	h1 Dashboard
-	p.
-		Welcome to the Dashboard! You are now logged in.
-		 <a href="/logout"> logout </a> 
 
 	h2 User Information
 	p First Name: 	#{user.firstName}
@@ -20,9 +18,9 @@ block content
 		input(type="text" ng-model="todoInput" size="50" placeholder='Budget')
 		input(type="submit" value="Search")
 
-	div(ng-repeat="x in todoList track by $index")
+	div(ng-repeat="x in lookup track by $index")
 		input(type="checkbox" ng-model="x.done")
-		span(ng-bind="x.todoText")
+		span(ng-bind="x.country")
 
 	button(ng-click="remove()") Remove
 

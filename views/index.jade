@@ -4,20 +4,22 @@ block vars
   - var title = 'Home'
 
 block content
-  script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
-  div(class='container')
-   h1 Hungry Adventure
-   p.
-    Welcome to the home page! Please <a href="/login"> Login </a> or 
-    <a href="/register"> Register </a> to continue.
-
-   h2 Budget
-    form(ng-submit="todoAdd()")
-     input(type="text" ng-model="todoInput" size="50" placeholder='Budget')
-     input(type="submit" value="Search")
-
-    div(ng-repeat="x in todoList track by $index")
-     input(type="checkbox" ng-model="x.done")
-     span(ng-bind="x.todoText")
+   div(class="container-fluid" align="center")
+      form(class="navbar-form" role="search" ng-submit="todoAdd()")
+       input(type="text" ng-model="todoInput" placeholder='Budget')
+       input(type="submit" value="Search")
+   
+   div(class="container")
+      div(ng-repeat="x in lookup track by $index" class="row" style="width:100; background:#d3d3d3;")
+       <img class="rounded z-depth-5" src="{{x.url}}" width="250" height="250"><a></a>
+       div(class="card-block")
+        h2 {{x.country}}
+        h5 
+        Paris can be seen as thé most interesting city of Europe Paris can be seen as thé most interesting city
+        h2
+          <button href="#" class="btn btn-primary" role="button" align="right"> ${{x.price}}</a> 
 
    script(src="/js/todo.js")
+
+
+

@@ -13,7 +13,24 @@ html
 
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous")
 
-  body(ng-app="myApp" ng-controller="todoCtrl")
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js')
+
+  body(background="/assets/loginBackground.jpg" ng-app="myApp" ng-controller="todoCtrl")
+
+   nav(class="navbar navbar-toggleable-md navbar-inverse bg-inverse")
+    button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      span(class="navbar-toggler-icon")
+    <a class="navbar-brand" href="/">Hungry Adventure</a>
+    div(class="collapse navbar-collapse" id="navbarSupportedContent")
+     ul(class="navbar-nav mr-auto")
+      li(class="nav-item active")
+       <a class="nav-link" href="/login">Login</a><span class="sr-only">(current)
+      li(class="nav-item")
+       <a class="nav-link" href="/register">Register</a>
+      li(class="nav-item")
+       <a class="nav-link" href="/logout">Logout</a>
+      li(class="nav-item")
+       <a class="nav-link disabled" href="#">Disable
    block content
 
 
