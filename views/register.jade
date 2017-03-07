@@ -4,29 +4,30 @@ block vars
   - var title = 'Register'
 
 block content
-  <font color="white"><center>
-  h1 Create an Account
+  div.container
+   div.card.card-container
+    h2.login_title.text-center Create an Account
+    hr
+    if error
+     p ERROR: #{error}
 
-  if error
-    p ERROR: #{error}
+    form.form-signin(method="post")
+     input(type="hidden", name="_csrf", value=csrfToken)
 
-  form(method="post")
-    input(type="hidden", name="_csrf", value=csrfToken)
+     span.input_title First Name:
+     input(type="text", name="firstName", required=true)
+     br
 
-    span First Name:
-    input(type="text", name="firstName", required=true)
-    br
+     span.input_title Last Name:
+     input(type="text", name="lastName", required=true)
+     br
 
-    span Last Name:
-    input(type="text", name="lastName", required=true)
-    br
+     span.input_title Email:
+     input(type="email", name="email", required=true)
+     br
 
-    span Email:
-    input(type="email", name="email", required=true)
-    br
+     span.input_title Password:
+     input(type="password", name="password", required=true)
+     br
 
-    span Password:
-    input(type="password", name="password", required=true)
-    br
-
-    input(type="submit")
+     input(class="btn btn-lg btn-primary" type="submit")
