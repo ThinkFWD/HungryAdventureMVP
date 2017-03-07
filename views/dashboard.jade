@@ -12,13 +12,12 @@ block content
 	h2 User Information
 	p First Name: 	#{user.firstName}
 	p Email: 		#{user.email}
-	p Data:	   		#{user.data}
 
-	h2 My Trip Budget
+	h2 Budget
 
 	form(ng-submit="todoAdd()")
-		input(type="text" ng-model="todoInput" size="50" placeholder='Add New')
-		input(type="submit" value="Add New")
+		input(type="text" ng-model="todoInput" size="50" placeholder='Budget')
+		input(type="submit" value="Search")
 
 	div(ng-repeat="x in todoList track by $index")
 		input(type="checkbox" ng-model="x.done")
